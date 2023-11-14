@@ -1,4 +1,3 @@
-from re import I
 import socket,os
 
 pingas = os.path.join(os.path.expanduser('~'), 'Downloads', 'pingas.csv')
