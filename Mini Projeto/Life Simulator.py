@@ -1,4 +1,4 @@
-import os
+import os, random
 from tkinter import Tk, Label, Button, Toplevel
 
 # Interfaces
@@ -98,7 +98,15 @@ def use_bathroom():
 
 def read_book():
     # Lógica para ler um livro
+    global energia
+    e = random.randint(5, 15)
+    energia = 100 - e
     update_status()
+    read_window = Toplevel(root)
+    read_window.title('Descrição')
+    read_window.geometry('250x50')
+    read_label = Label(read_window, text='Você leu o livro e adquiriu conhecimento')
+    read_label.pack()
 
 def draw():
     # Lógica para desenhar
