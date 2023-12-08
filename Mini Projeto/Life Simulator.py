@@ -83,8 +83,15 @@ def open_fridge():
 
 def go_to_sleep():
     # Lógica para dormir
+    global energia
+    energia = 100
     update_status()
-
+    sleep_window = Toplevel(root)
+    sleep_window.title('Descrição')
+    sleep_window.geometry('250x50')
+    sleep_label = Label(sleep_window, text='Você dormiu e recuperou suas energias')
+    sleep_label.pack()
+    
 def use_bathroom():
     # Lógica para usar o banheiro
     update_status()
