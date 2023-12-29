@@ -41,7 +41,7 @@ def update_status():
 def use_sword():
     global ed_hp, p_hp
     
-    sword_damage = random.randint(8, 1000)
+    sword_damage = random.randint(8, 16)
     
     if ed_hp > 0:
         ed_hp -= sword_damage
@@ -50,9 +50,25 @@ def use_sword():
         if ed_hp <= 0:
             status_label.config(text="\nYou defeated the Ender Dragon! You Won :D")
             sword_button.destroy()
-    else:
-        status_label.config(text="The Ender Dragon is already defeated")
 
+def use_bow():
+    global ed_hp, p_hp
+    
+    bow_damage = random.randint(15, 30)
+    shot = random.randint(1, 2)
+    
+    if shot == 2:
+        ed_hp -= bow_damage
+        update_status()
+    else:
+        None
+        if ed_hp <= 0:
+            status_label.config(text="\nYou defeated the Ender Dragon! You Won :D")
+            bow_button.destroy()
+       
+bow_button = Button(root, text="Bow", command=use_bow)       
+bow_button.pack()
+        
 sword_button = Button(root, text="Sword", command=use_sword)
 sword_button.pack()
 
